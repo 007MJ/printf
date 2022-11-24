@@ -6,13 +6,13 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 14:34:25 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/11/23 14:37:49 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/11/24 14:45:42 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
 	int	i;
 
@@ -22,4 +22,5 @@ ft_putstr(char *str)
 		ft_putchar(i);
 		i++;
 	}
+	return (i);
 }
