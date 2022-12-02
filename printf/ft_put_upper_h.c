@@ -1,56 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_in_str.c                                  :+:      :+:    :+:   */
+/*   ft_puthexx.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 13:24:52 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/11/23 15:27:42 by mnshimiy         ###   ########.fr       */
+/*   Created: 2022/11/29 14:24:07 by mnshimiy          #+#    #+#             */
+/*   Updated: 2022/11/30 14:10:26 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
-ft_check_in_str(char c)
+
+int	ft_puthexx(unsigned int number)
 {
-	if(c == 'c')
-	{
-		ft_putchar(c);
-	}
-	else if (c == 's')
-	{
+	char	*myascii;
+	int		i;
+	int		ii;
+	int		temp;
 
-	}
-	else if (c == 'p')
+	i = 0;
+	ii = 0;
+	myascii = "0123456789abcdef";
+	while (number != 0)
 	{
-
+		tem = number / 16;
+		ft_putchar(myascii[i + tem]);
+		number = number / 16;
+		ii++;
 	}
-	else if (c == 'd')
-	{
-
-	}
-	else if (c == 'i')
-	{
-
-	}
-	else if (c == 'u')
-	{
-
-	}
-	else if (c == 'x')
-	{
-
-	}
-	else if (c == 'X')
-	{
-
-	}
-	else if (c == '%')
-	{
-
-	}
-	else
-	{
-
-	}
+	return (ii);
 }

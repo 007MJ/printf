@@ -6,7 +6,7 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 12:40:51 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/11/24 15:33:18 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/02 14:48:25 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,15 @@ size_t	ft_check_in_str(va_list str, char c)
 		return (ft_putchar(va_arg(str, char)));
 	else if (c == 's')
 		return (ft_pustr(va_arg(str, char *)));
-	else if (c == 'p')
-		return (ft_putptr(str, ));
+	else if (c == 'X')
+		return (ft_puthex(va_arg(str, unsigned int)));
+	else if (c == 'x')
+		return (ft_puthexx(va_arg(str, unsigned int)));
+	else if (c == 'd' || c == 'i')
+		return (ft_putdecimal(va_arg(str, int)));
+	else if (c == 'u')
+		return (ft_put_u(va_arg(str, unsigned int)));
+
 }
 
 int	ft_printf(const char *str, ...)
@@ -37,6 +44,7 @@ int	ft_printf(const char *str, ...)
 			c = str[i + 1];
 			i += ft_check_in_str(instr, str[i + 1]);
 		}
+		ft_putchar(i);
 		i++;
 	}
 	va_end(instr);
