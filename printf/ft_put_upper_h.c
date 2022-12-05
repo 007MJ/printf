@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexx.c                                       :+:      :+:    :+:   */
+/*   ft_put_upper_h.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 14:24:07 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/11/30 14:10:26 by mnshimiy         ###   ########.fr       */
+/*   Created: 2022/11/28 12:30:03 by mnshimiy          #+#    #+#             */
+/*   Updated: 2022/12/05 11:10:25 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_puthexx(unsigned int number)
+int	ft_put_upper_h(unsigned int number)
 {
-	char	*myascii;
-	int		i;
-	int		ii;
-	int		temp;
+	int	temp;
+	int	ii;
 
-	i = 0;
 	ii = 0;
-	myascii = "0123456789abcdef";
-	while (number != 0)
+	while (number != 10)
 	{
-		tem = number / 16;
-		ft_putchar(myascii[i + tem]);
+		temp = number / 16;
+		if (temp >= 10)
+			ft_putchar(temp + 55);
+		ft_putchar(temp + 48);
 		number = number / 16;
 		ii++;
 	}

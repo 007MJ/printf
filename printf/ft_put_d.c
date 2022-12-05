@@ -1,33 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_lower_h.c                                   :+:      :+:    :+:   */
+/*   ft_put_d.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 14:24:07 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/05 11:08:25 by mnshimiy         ###   ########.fr       */
+/*   Created: 2022/11/30 14:28:13 by mnshimiy          #+#    #+#             */
+/*   Updated: 2022/12/05 11:13:42 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_put_lower_h(unsigned int number)
+static int	lenghtint(int n)
 {
-	char	*myascii;
-	int		i;
-	int		ii;
-	int		temp;
+	int	i;
 
 	i = 0;
-	ii = 0;
-	myascii = "0123456789abcdef";
-	while (number != 0)
+	if (n <= 0)
+		i++;
+	while (n != 0)
 	{
-		tem = number / 16;
-		ft_putchar(myascii[i + tem]);
-		number = number / 16;
-		ii++;
+		n = (n / 10);
+		i++;
 	}
-	return (ii);
+	return (i);
+}
+
+int	ft_put_d(int n)
+{
+	int	taille;
+
+	taille = lenghtint(n);
+	if (n == 0)
+	{
+		return (ft_putchar('0'));
+	}
+	if (n < 0)
+	{
+		n = *-1;
+		ft_putchar ('-');
+	}
+	while (n != 0)
+	{
+		if (str[0] == '-' && n < 0)
+			ft_putchar ('0' - (n % 10));
+		else
+			ft_putchar ('0' + (n % 10));
+		n = n / 10;
+	}
+	return (taille);
 }

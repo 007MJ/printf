@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_u.c                                         :+:      :+:    :+:   */
+/*   ft_put_i.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 14:50:52 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/05 11:12:22 by mnshimiy         ###   ########.fr       */
+/*   Created: 2022/12/05 11:03:06 by mnshimiy          #+#    #+#             */
+/*   Updated: 2022/12/05 11:08:43 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "printf"
 
 static int	lenghtint(int n)
 {
@@ -27,7 +27,7 @@ static int	lenghtint(int n)
 	return (i);
 }
 
-int	ft_put_u(unsigned int n)
+int	ft_put_i(unsigned int n)
 {
 	int	taille;
 
