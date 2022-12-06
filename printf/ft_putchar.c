@@ -6,13 +6,13 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 14:30:24 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/11/24 14:45:21 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/06 11:25:39 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_putchar(char c)
+int	ft_putchar(int c)
 {
 	write (1, &c, 1);
 	return (1);

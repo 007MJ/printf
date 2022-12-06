@@ -6,7 +6,7 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 14:50:52 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/05 11:12:22 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/06 11:24:00 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ int	ft_put_u(unsigned int n)
 	}
 	if (n < 0)
 	{
-		n = *-1;
+		n *= -1;
 		ft_putchar ('-');
 	}
 	while (n != 0)
 	{
-		if (str[0] == '-' && n < 0)
+		if (ft_putchar('0') == '-' && n < 0)
 			ft_putchar ('0' - (n % 10));
 		else
 			ft_putchar ('0' + (n % 10));

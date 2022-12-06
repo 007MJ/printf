@@ -6,11 +6,11 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:03:06 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/05 11:08:43 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/06 11:24:13 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf"
+#include "printf.h"
 
 static int	lenghtint(int n)
 {
@@ -38,12 +38,12 @@ int	ft_put_i(unsigned int n)
 	}
 	if (n < 0)
 	{
-		n = *-1;
+		n *= -1;
 		ft_putchar ('-');
 	}
 	while (n != 0)
 	{
-		if (str[0] == '-' && n < 0)
+		if (ft_putchar('0') == '-' && n < 0)
 			ft_putchar ('0' - (n % 10));
 		else
 			ft_putchar ('0' + (n % 10));
