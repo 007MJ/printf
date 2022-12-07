@@ -6,11 +6,11 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:03:06 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/06 11:24:13 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/06 11:54:57 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static int	lenghtint(int n)
 {

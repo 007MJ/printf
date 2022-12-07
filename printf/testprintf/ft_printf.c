@@ -5,57 +5,68 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 12:40:51 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/06 12:05:24 by mnshimiy         ###   ########.fr       */
+/*   Created: 2022/12/07 09:44:25 by mnshimiy          #+#    #+#             */
+/*   Updated: 2022/12/07 13:23:00 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdio.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
-int	ft_check_in_str(va_list str, char c)
+
+int	ft_putchar(int c)
+{
+		//write(1, "4", 1);
+	write(1, &c, 1);
+	return (1);
+}
+
+int	ft_vardique(va_list instr, int c)
 {
 	int	i;
 
 	i = 0;
+	//write(1, "2", 1);
 	if (c == 'c')
-		i = ft_putchar(va_arg(str, int));
-	else if (c == 's')
-		i = ft_putstr(va_arg(str, char *));
-	else if (c == 'X')
-		i = ft_put_upper_h(va_arg(str, unsigned int));
-	else if (c == 'x')
-		i = ft_put_lower_h(va_arg(str, unsigned int));
-	else if (c == 'd' || c == 'i')
-		i = ft_put_d(va_arg(str, int));
-	else if (c == 'u')
-		i = ft_put_u(va_arg(str, unsigned int));
-	else if (c == 'i')
-		i = ft_put_i(va_arg(str, unsigned int));
-	else if (c == 'p')
-		i = ft_put_ptr(va_arg(str, long long int));
-	else
-		i = ft_putchar('%');
+		//write(1, "3", 1);
+		i += ft_putchar(va_arg(instr, int));
 	return (i);
 }
 
-int	ft_printf(const char *str, ...)
+int	ft_print(const char *str, ...)
 {
-	va_list	instr;
 	int		i;
-	char	c;
+	int		len;
+	va_list	instr;
 
 	i = 0;
+	len = 0;
 	va_start(instr, str);
 	while (str[i])
 	{
+		//printf (" %c : %d\n", str[i], i);
 		if (str[i] == '%')
 		{
-			c = str[i + 1];
-			i += ft_check_in_str(instr, c);
+			//write(1, "1", 1);
+			len += ft_vardique(instr, str[i + 1]);
+			i++;
 		}
-		ft_putchar(i);
+		else
+			len += ft_putchar(str[i]);
 		i++;
 	}
+
 	va_end(instr);
-	return (i);
+	return (len);
+}
+
+int	main(void)
+{
+	int i = ft_print("abc");
+	printf("%d\n", i);
+	int ii = printf("abc");
+	printf("%d", ii);
 }

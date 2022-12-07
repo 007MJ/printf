@@ -6,11 +6,11 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 12:30:03 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/06 11:23:55 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/06 11:55:12 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_put_upper_h(unsigned int number)
 {

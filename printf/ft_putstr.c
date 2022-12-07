@@ -6,11 +6,11 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 14:34:25 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/06 11:23:47 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/06 11:55:18 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putstr(char *str)
 {
