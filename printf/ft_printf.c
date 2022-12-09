@@ -6,13 +6,13 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 12:40:51 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/06 12:05:24 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/08 09:42:33 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_check_in_str(va_list str, char c)
+int	ft_check_in_str(va_list str, int c)
 {
 	int	i;
 
@@ -42,7 +42,7 @@ int	ft_printf(const char *str, ...)
 {
 	va_list	instr;
 	int		i;
-	char	c;
+	int		len;
 
 	i = 0;
 	va_start(instr, str);
@@ -50,12 +50,11 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			c = str[i + 1];
-			i += ft_check_in_str(instr, c);
+			len += ft_check_in_str(instr, str[i + 1]);
 		}
-		ft_putchar(i);
+		len += ft_putchar(i);
 		i++;
 	}
 	va_end(instr);
-	return (i);
+	return (len);
 }

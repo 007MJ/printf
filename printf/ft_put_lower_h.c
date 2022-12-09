@@ -6,7 +6,7 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 14:24:07 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/06 11:55:00 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:46:57 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,5 @@
 
 int	ft_put_lower_h(unsigned int number)
 {
-	char	*myascii;
-	int		i;
-	int		ii;
-	int		temp;
-
-	i = 0;
-	ii = 0;
-	myascii = "0123456789abcdef";
-	while (number != 0)
-	{
-		temp = number / 16;
-		ft_putchar(myascii[i + temp]);
-		number = number / 16;
-		ii++;
-	}
-	return (ii);
+	
 }
