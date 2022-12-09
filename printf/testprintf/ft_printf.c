@@ -6,7 +6,7 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 09:44:25 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/07 13:23:00 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/09 11:37:35 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,27 @@
 #include <unistd.h>
 #include <string.h>
 
-
-int	ft_putchar(int c)
+void	ft_putchar(int c, int *zise)
 {
-		//write(1, "4", 1);
 	write(1, &c, 1);
-	return (1);
+	*zise += 1;
+}
+
+int	ft_put_i(int n)
+{
+	int				*i;
+	unsigned int	nn;
+
+	nn = (unsigned int)n;
+	i = 0;
+	if (n < 0)
+	{
+		ft_putchar('-', i);
+	}
+	if (n > 9)
+		ft_put_i(nn / 10);
+	ft_putchar(nn % 10 + '0', i);
+	return (i);
 }
 
 int	ft_vardique(va_list instr, int c)
@@ -29,17 +44,15 @@ int	ft_vardique(va_list instr, int c)
 	int	i;
 
 	i = 0;
-	//write(1, "2", 1);
-	if (c == 'c')
-		//write(1, "3", 1);
-		i += ft_putchar(va_arg(instr, int));
+	if (c == 'd')
+		i += ft_put_i(va_arg(instr, int));
 	return (i);
 }
 
 int	ft_print(const char *str, ...)
 {
 	int		i;
-	int		len;
+	int		*len;
 	va_list	instr;
 
 	i = 0;
@@ -47,26 +60,32 @@ int	ft_print(const char *str, ...)
 	va_start(instr, str);
 	while (str[i])
 	{
-		//printf (" %c : %d\n", str[i], i);
 		if (str[i] == '%')
 		{
-			//write(1, "1", 1);
 			len += ft_vardique(instr, str[i + 1]);
 			i++;
 		}
 		else
-			len += ft_putchar(str[i]);
+			ft_putchar(str[i], );
 		i++;
 	}
-
 	va_end(instr);
 	return (len);
 }
 
 int	main(void)
 {
-	int i = ft_print("abc");
+	char *ptr;
+	ptr = 0;
+
+//	int i = ft_print("avoir de nombre en hex de %x\n", 1233);
+//	printf("%d\n", i);
+//	int ii = printf("avoir de nombre en hex de %x\n", 1233);
+//	printf("%d\n", ii);
+	int i ;
+	i = ft_print("%d\n", -21);
 	printf("%d\n", i);
-	int ii = printf("abc");
-	printf("%d", ii);
+	int ii;
+	ii = printf("%d\n", -21);
+	printf("%d\n", ii);
 }
