@@ -6,7 +6,7 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 09:44:25 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/09 11:37:35 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/12 10:13:03 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,31 +22,52 @@ void	ft_putchar(int c, int *zise)
 	*zise += 1;
 }
 
-int	ft_put_i(int n)
+void	ft_put_i(int n, int *count)
 {
-	int				*i;
 	unsigned int	nn;
 
 	nn = (unsigned int)n;
-	i = 0;
 	if (n < 0)
 	{
-		ft_putchar('-', i);
+		ft_putchar('-', count);
+		nn = -nn;
 	}
-	if (n > 9)
-		ft_put_i(nn / 10);
-	ft_putchar(nn % 10 + '0', i);
-	return (i);
+	if (nn > 9)
+		ft_put_i((nn / 10), count);
+	ft_putchar(nn % 10 + '0', count);
 }
 
-int	ft_vardique(va_list instr, int c)
+void	ft_putstr(char *str, int *len)
 {
-	int	i;
+	while (*str)
+	{
+		ft_putchar(*str, len);
+		str++;
+	}
+}
 
-	i = 0;
+void	ft_put_d(int n, int *len)
+{
+	unsigned int	nn;
+
+	nn = (unsigned int)n;
+	if (n < 0)
+	{
+		ft_putchar('-', len);
+	}
+	if (nn > 9)
+		ft_put_i(nn / 10, len);
+	ft_putchar(nn % 10 + '0', len);
+}
+
+void	ft_vardique(va_list instr, int c, int *len)
+{
 	if (c == 'd')
-		i += ft_put_i(va_arg(instr, int));
-	return (i);
+		ft_put_i(va_arg(instr, int ), len);
+	if (c == 'c')
+		ft_putchar(va_arg(instr, int), len);
+	if (c == 's')
+		ft_putstr(va_arg(instr, char *), len);
 }
 
 int	ft_print(const char *str, ...)
@@ -56,36 +77,39 @@ int	ft_print(const char *str, ...)
 	va_list	instr;
 
 	i = 0;
-	len = 0;
+	len = &i;
 	va_start(instr, str);
-	while (str[i])
+	while (*str)
 	{
-		if (str[i] == '%')
+		if (*str == '%')
 		{
-			len += ft_vardique(instr, str[i + 1]);
-			i++;
+			ft_vardique(instr, *(str + 1), len);
+			str++;
 		}
 		else
-			ft_putchar(str[i], );
-		i++;
+			ft_putchar(*str, len);
+		str++;
 	}
 	va_end(instr);
-	return (len);
+	return (*len);
 }
 
 int	main(void)
 {
-	char *ptr;
-	ptr = 0;
+	//char *ptr;
+	//ptr = 0;
 
 //	int i = ft_print("avoir de nombre en hex de %x\n", 1233);
 //	printf("%d\n", i);
 //	int ii = printf("avoir de nombre en hex de %x\n", 1233);
 //	printf("%d\n", ii);
 	int i ;
-	i = ft_print("%d\n", -21);
-	printf("%d\n", i);
-	int ii;
-	ii = printf("%d\n", -21);
-	printf("%d\n", ii);
+	i = 0;
+	//ft_print("%d\n", -21);
+	//printf("%d\n", i);
+//	int ii;
+//	ii = printf("%d\n", -21);
+	//printf("%d\n", ii);
+	i = ft_print("bonjour %s", "bonjour");
+	printf("%d", i);
 }
