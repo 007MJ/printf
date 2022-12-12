@@ -6,27 +6,22 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 14:28:13 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/09 10:57:59 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/12 10:12:39 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	lenghtint(int n)
+int	ft_put_d(int n,)
 {
-	int	i;
+	unsigned int	nn;
 
-	i = 0;
-	if (n <= 0)
-		i++;
-	while (n != 0)
+	nn = (unsigned int)n;
+	if (n < 0)
 	{
-		n = (n / 10);
-		i++;
+		ft_putchar('-', len);
 	}
-	return (i);
-}
-
-int	ft_put_d(int n)
-{
+	if (nn > 9)
+		ft_put_i(nn / 10, len);
+	ft_putchar(nn % 10 + '0', len);
 }

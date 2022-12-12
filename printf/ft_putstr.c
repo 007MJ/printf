@@ -6,21 +6,20 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 14:34:25 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/06 11:55:18 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/12 09:50:25 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *str)
+int	ft_putstr(char *str, int *len)
 {
 	int	i;
 
 	i = 0;
 	while (str[i])
 	{
-		ft_putchar(i);
+		ft_putchar(i, len);
 		i++;
 	}
-	return (i);
 }

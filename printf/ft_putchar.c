@@ -6,14 +6,14 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 14:30:24 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/06 11:55:14 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/12 09:50:04 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(int c)
+int	ft_putchar(int c, int *len)
 {
 	write (1, &c, 1);
-	return (1);
+	*len += 1;
 }
