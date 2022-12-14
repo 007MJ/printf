@@ -6,14 +6,14 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 14:30:24 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/12 09:50:04 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/14 16:50:09 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(int c, int *len)
+void	ft_putchar(int c, int *zise)
 {
-	write (1, &c, 1);
-	*len += 1;
+	write(1, &c, 1);
+	*zise += 1;
 }

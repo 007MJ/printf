@@ -6,26 +6,25 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 12:30:03 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/06 11:55:12 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/14 16:39:48 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_put_upper_h(unsigned int number)
+void	ft_put_upper_h(unsigned int number, int *len)
 {
-	int	temp;
-	int	ii;
-
-	ii = 0;
-	while (number != 10)
+	if (number > 16)
 	{
-		temp = number / 16;
-		if (temp >= 10)
-			ft_putchar(temp + 55);
-		ft_putchar(temp + 48);
-		number = number / 16;
-		ii++;
+		ft_put_lower_h((number / 16), len);
+		ft_put_lower_h((number % 16), len);
 	}
-	return (ii);
+	else if (number <= 9)
+	{
+		ft_putchar((number + 48), len);
+	}
+	else
+	{
+		ft_putchar((number + 55), len);
+	}
 }

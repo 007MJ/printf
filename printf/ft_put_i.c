@@ -6,13 +6,13 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:03:06 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/12 09:54:22 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/14 16:48:43 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_put_i(int n, int *len)
+void	ft_put_i(int n, int *len)
 {
 	unsigned int	nn;
 
