@@ -6,7 +6,7 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 12:40:51 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/15 19:57:10 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/16 14:02:53 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,3 @@ int	ft_printf(const char *str, ...)
 	va_end(instr);
 	return (*len);
 }
-
-// int	main(void)
-// {
-// 	ft_printf("%d", -10);
-// }
