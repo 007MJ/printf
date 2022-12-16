@@ -6,7 +6,7 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 12:40:51 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/14 17:32:01 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/15 19:57:10 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,15 @@ void	ft_vardique(va_list instr, int c, int *len)
 	if (c == 's')
 		ft_putstr(va_arg(instr, char *), len);
 	if (c == 'u')
-		ft_put_d(va_arg(instr, unsigned int), len);
+		ft_put_u(va_arg(instr, unsigned int), len);
 	if (c == 'x')
 		ft_put_lower_h(va_arg(instr, unsigned int), len);
 	if (c == 'X')
 		ft_put_upper_h(va_arg(instr, unsigned int), len);
 	if (c == 'p')
-		ft_put_ptr(va_arg(instr, long), len);
+		ft_ox(va_arg(instr, long), len);
+	if (c == '%')
+		ft_putchar('%', len);
 }
 
 int	ft_printf(const char *str, ...)
@@ -41,7 +43,7 @@ int	ft_printf(const char *str, ...)
 	va_start(instr, str);
 	while (*str)
 	{
-		if (*str == '%' && *(str + 1) != '%')
+		if (*str == '%')
 		{
 			ft_vardique(instr, *(str + 1), len);
 			str++;
@@ -53,3 +55,8 @@ int	ft_printf(const char *str, ...)
 	va_end(instr);
 	return (*len);
 }
+
+// int	main(void)
+// {
+// 	ft_printf("%d", -10);
+// }

@@ -6,26 +6,31 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:14:23 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/14 17:08:57 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/15 20:00:06 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_put_ptr(long number, int *len)
+void	ft_put_ptr(unsigned long long number, int *len)
 {
-	ft_putstr("0x", len);
-	if (number > 16)
+	if (number >= 16)
 	{
-		ft_put_lower_h((number / 16), len);
-		ft_put_lower_h((number % 16), len);
+		ft_put_ptr((number / 16), len);
+		ft_put_ptr((number % 16), len);
 	}
-	else if (number <= 9)
+	else if (number < 10)
 	{
 		ft_putchar((number + 48), len);
 	}
 	else
 	{
-		ft_putchar((number + 55), len);
+		ft_putchar((number + 87), len);
 	}
+}
+
+void	ft_ox(unsigned long long number, int *len)
+{
+	ft_putstr("0x", len);
+	ft_put_ptr(number, len);
 }

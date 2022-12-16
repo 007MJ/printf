@@ -6,7 +6,7 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 14:34:25 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/14 17:14:59 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/15 17:53:34 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,16 @@
 
 void	ft_putstr(char *str, int *len)
 {
-	while (*str)
+	if (!str)
 	{
-		ft_putchar(*str, len);
-		str++;
+		*len += write(1, "(null)", 6);
+	}
+	else
+	{
+		while (*str)
+		{
+			ft_putchar(*str, len);
+			str++;
+		}
 	}
 }

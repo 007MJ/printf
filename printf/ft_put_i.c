@@ -6,7 +6,7 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:03:06 by mnshimiy          #+#    #+#             */
-/*   Updated: 2022/12/14 16:48:43 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2022/12/15 19:49:45 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 
 void	ft_put_i(int n, int *len)
 {
-	unsigned int	nn;
-
-	nn = (unsigned int)n;
+	if (n == INT_MIN)
+	{
+		*len += write(1, "-2147483648", 11);
+		return ;
+	}
 	if (n < 0)
 	{
 		ft_putchar('-', len);
+		n *= -1;
 	}
-	if (nn > 9)
-		ft_put_i(nn / 10, len);
-	ft_putchar(nn % 10 + '0', len);
+	if (n > 9)
+		ft_put_i(n / 10, len);
+	ft_putchar(n % 10 + '0', len);
 }
