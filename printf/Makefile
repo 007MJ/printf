@@ -9,12 +9,16 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	ar -rcs $(NAME) $^
+
 %.o : %.c
 	$(CC) $(CFLAG) -o $@ -c $^
 clean :
 	$(RM) $(OBJ)
 fclean : clean
 	$(RM) $(NAME)
+
+re : clean fclean
+
 
 
 
